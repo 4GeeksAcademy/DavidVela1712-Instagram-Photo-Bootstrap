@@ -5,10 +5,229 @@
     <title>Instagram Photo Bootsrtap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+    <div class="container-fluid">
+        <div class="row mx-5">
+            <div class="col-6">
+                <h2>
+                    <i class="bi bi-instagram"></i>
+                    Instagram
+                </h2>
+            </div>
+            <div class="col-6 d-flex justify-content-end p-2">
+                <button type="button" class="btn btn-success me-3" data-bs-toggle="modal"
+                    data-bs-target="#createNewPost">
+                    Create a new post
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="createNewPost" tabindex="-1" aria-labelledby="createNewPostLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="createNewPostLabel">Create a new post</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form>
+                                <div class="modal-body">
+                                    <label for="caption" class="form-label"><b>Caption:</b></label>
+                                    <textarea id="caption" class="form-control" rows="3"
+                                        placeholder="Add your caption of your post here"></textarea>
+                                    <i class="bi bi-camera-fill me-3"></i>
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-success">Publish</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-gear-fill"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Accesibility</a></li>
+                        <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs d-flex justify-content-center" id="posts" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="triple-post" data-bs-toggle="tab"
+                            data-bs-target="#triple-post-pane" type="button" role="tab" aria-controls="triple-post-pane"
+                            aria-selected="true"><i class="bi bi-grid-3x3"></i></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="one-post" data-bs-toggle="tab" data-bs-target="#one-post-pane"
+                            type="button" role="tab" aria-controls="one-post-pane" aria-selected="true"><i
+                                class="bi bi-square-fill"></i></button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="postsContent">
+                    <div class="tab-pane fade show active" id="triple-post-pane" role="tabpanel"
+                        aria-labelledby="triple-post" tabindex="0">
+                        <div class="container-fluid">
+                            <div class="row g-1">
+                                <div class="col-4">
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/cbMshIrfeTnx0_eXnz54jd16te9vVJAHtMvD_fch6mA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vcUVwYjFX/QkdJd2RjQ2ZRQ3c4/TTJ6UEZNZ0FhcWhT/ZTR4c3pXMFVCOW15/US9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlq/YjI1MC9aVzUwTG01/aGRHbHZibUZzL1oy/VnZaM0poY0docFl5/NWovYjIwdVpYTXZi/V1ZrYVc4di9NakF5/TVM4eE1TOHlPUzlt/L2IzUnZaM0poWm04/dFpHVXQvY0dGcGMy/RnFaWE10Ym1GMC9k/WEpoYkdWekxXUmxi/QzFoL2JtOHRjMlZu/ZFc1a2J5MXcvY21W/dGFXOWZZVE15WWpK/bS9OalpmTWpBd01I/Z3hOVGswL0xtcHda/dw">
+                                    </div>
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/ywJIw8lDfrnpXqIXvtkV_x66egIfj5sd0_kgEwcQESI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vbVZzQ3gx/cmRWdjlRMC1HSk5o/NUFNUXUxa2UtQ0FN/SzJnNk1Rcl9vZG5h/by9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlw/YldjdS9abkpsWlhC/cGF5NWpiMjB2L1pt/OTBiM010Y0hKbGJX/bDEvYlM5MlpXZGhM/V0poYW1FdC9jMlZu/ZFhKaExYUnZjbkps/L2RtbGxhbUV0Y0dG/cGMyRnEvWlhNdGRY/SmlZVzVwZW1Gai9h/Vzl1TFcxaGNpMWhl/blZzL0xXTmxjbU5o/TFdOaGJHRXQvWm1W/eWNtbHpYell6TnpN/eC9MVEU1T0RBdWFu/Qm5QM05sL2JYUTlZ/V2x6WDJoNVluSnAv/WkNaM1BUYzBNQQ">
+                                    </div>
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/ijMBUsUWmv84zvxCFH9F02nk_ZxCsGfNYrzWSPBTwJE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vNnBLeEpn/X2hfVHJ3cmtZcHls/emNGZ0xWS2doLV9L/eFJvWTlPOVZydC1m/cy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlz/YjNOMi9hV0ZxWlhO/a1pXUnZiV2t1L1ky/OXRMM2R3TFdOdmJu/UmwvYm5RdmRYQnNi/MkZrY3k4eS9NREl4/THpBNUwyTmhkR0Z5/L1lYUmhjeTFrWld3/dGFXZDEvWVhwMUxU/RXRNUzB4TG1wdy9a/dw">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/wSgu_sBj-9Jor2V-jMwCrI0NSs2FCQWQaRP5COZCd4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vUmdjeHdN/LUFwdEFrVXJSVlhX/MTlfcTFTazZNTjdB/dEw5a2pWQ1VxNWI3/Yy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlz/YjNOMi9hV0ZxWlhO/a1pXUnZiV2t1L1ky/OXRMM2R3TFdOdmJu/UmwvYm5RdmRYQnNi/MkZrY3k4eS9NREl4/THpBNUwwVnNMVWR5/L1lXNHRRMkZ1YjI0/dFkyOXQvY0hKbGMz/TnZjaTB4TG1wdy9a/dw">
+                                    </div>
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/7HQcQIqJ6OqmR2vreibKS7Ng6WJAO8AmLBlczIuu_ow/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vZmRXWjYz/T3ZTSXJYSGkzdVZo/b0hZZWZ6ZmktSUgw/bm8tN0d2YzlOdVFD/OC9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlz/YjNOMi9hV0ZxWlhO/a1pXUnZiV2t1L1ky/OXRMM2R3TFdOdmJu/UmwvYm5RdmRYQnNi/MkZrY3k4eS9NREl4/THpBNUwwRnljbVZq/L2FXWmxMV1JsTFdO/dmNtRnMvTFdGMWMz/UnlZV3hwWVMweC9M/VEV1YW5Cbg">
+                                    </div>
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/Owhxg-MY9vjADpgUcWS1FVFJN4Su2aRdAwidLdw_Nvw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vTnE2Vl8w/ZzJtd2tFT0VxYTF0/ZWkyNmFDU2c2Zmtn/YnVVa01uZjRISUhv/Zy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTkw/TXk1bS9kR05rYmk1/dVpYUXZhbkJuL0x6/QTRMekF6THpJeEx6/STAvTHpNMk1GOUdY/emd3TXpJeC9NalF3/TTE4ME9UUmtOME5w/L2VWVjBNRWhLTTFn/eE5VMTYvY1dFNU1t/NUZNblU1VDJ0MS9P/UzVxY0dj">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/4dmn_TSyuffYFXvmZw1yiHTNYm5C6GYj7QUzIDEwvw4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vMFNjNlFT/UGkzRWZVWEdrUFNW/Rm5EQktHbEx5Zk5y/ejZkT0pEUWZ2MktM/Yy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlz/YjNOMi9hV0ZxWlhO/a1pXUnZiV2t1L1ky/OXRMM2R3TFdOdmJu/UmwvYm5RdmRYQnNi/MkZrY3k4eS9NREl4/THpBNUwzSnZjbUZw/L2JXRXRNUzB4TG1w/d1p3">
+                                    </div>
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/9dsFb-Lhd-c6MzS4WxBBA2Pq8AJYZeC1NnQI3ZAtJc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vT1JTV0Vj/cFRNNzRUVFllcFN2/V0JVcmdKdG1rZlBI/Skhqb1g4UWN3bm1M/by9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTl0/WldScC9ZUzVuWlhS/MGVXbHRZV2RsL2N5/NWpiMjB2YVdRdk1U/TXcvTlRnMk5UQXdN/aTlsY3k5bS9iM1J2/TDNCbGNtWmxZM1F0/L2QyRjJaUzFrZFhK/cGJtY3QvZEdobExX/ZHZiR1JsYmkxby9i/M1Z5TG1wd1p6OXpQ/VFl4L01uZzJNVElt/ZHowd0ptczkvTWpB/bVl6MWZkVVJGVTFW/bi9RazEyVG5aV1VH/cEdiV0U0L2EyTkZj/R0pCV21oRk1scEIv/U0c1b00yZERNeTFS/Y21kUi9QUQ">
+                                    </div>
+                                    <div class="ratio ratio-1x1 mb-1">
+                                        <img class="img-fluid object-fit-cover"
+                                            src="https://imgs.search.brave.com/zGrLNwbqpoTVHkGPGTquwVPalE_IvQvjrx3vPIz7AMw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vUHBUWFhs/dzdqRThvR043bnNS/bFFaYjZIU2YxTXBo/a2JyWHNBbUR2TDA3/SS9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlz/YjNOMi9hV0ZxWlhO/a1pXUnZiV2t1L1ky/OXRMM2R3TFdOdmJu/UmwvYm5RdmRYQnNi/MkZrY3k4eS9NREl4/THpBNUwyOXNZWE10/L1pHVnNMV1JsYzJs/bGNuUnYvTFVWRlZW/VXRNUzB4TG1wdy9a/dw">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="one-post-pane" role="tabpanel" aria-labelledby="one-post"
+                        tabindex="0">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-6">
+                                    <div class="container-fluid mb-3">
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <h4>Post 1</h4>
+                                            </div>
+                                            <div class="col-3 d-flex justify-content-end">
+                                                <p class="fs-6">08/25</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-1">
+                                                <img class="img-fluid w-100"
+                                                    src="https://imgs.search.brave.com/cbMshIrfeTnx0_eXnz54jd16te9vVJAHtMvD_fch6mA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vcUVwYjFX/QkdJd2RjQ2ZRQ3c4/TTJ6UEZNZ0FhcWhT/ZTR4c3pXMFVCOW15/US9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlq/YjI1MC9aVzUwTG01/aGRHbHZibUZzL1oy/VnZaM0poY0docFl5/NWovYjIwdVpYTXZi/V1ZrYVc4di9NakF5/TVM4eE1TOHlPUzlt/L2IzUnZaM0poWm04/dFpHVXQvY0dGcGMy/RnFaWE10Ym1GMC9k/WEpoYkdWekxXUmxi/QzFoL2JtOHRjMlZu/ZFc1a2J5MXcvY21W/dGFXOWZZVE15WWpK/bS9OalpmTWpBd01I/Z3hOVGswL0xtcHda/dw">
+                                            </div>
+                                            <div class="col-12">
+                                                <p><b>134 likes</b></p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="fs-6">Descripción del post</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="container-fluid mb-3">
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <h4>Post 2</h4>
+                                            </div>
+                                            <div class="col-3 d-flex justify-content-end">
+                                                <p class="fs-6">04/25</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-1">
+                                                <img class="img-fluid w-100"
+                                                    src="https://imgs.search.brave.com/wSgu_sBj-9Jor2V-jMwCrI0NSs2FCQWQaRP5COZCd4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vUmdjeHdN/LUFwdEFrVXJSVlhX/MTlfcTFTazZNTjdB/dEw5a2pWQ1VxNWI3/Yy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlz/YjNOMi9hV0ZxWlhO/a1pXUnZiV2t1L1ky/OXRMM2R3TFdOdmJu/UmwvYm5RdmRYQnNi/MkZrY3k4eS9NREl4/THpBNUwwVnNMVWR5/L1lXNHRRMkZ1YjI0/dFkyOXQvY0hKbGMz/TnZjaTB4TG1wdy9a/dw">
+                                            </div>
+                                            <div class="col-12">
+                                                <p><b>834 likes</b></p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="fs-6">Descripción del post 2</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="container-fluid mb-3">
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <h4>Post 3</h4>
+                                            </div>
+                                            <div class="col-3 d-flex justify-content-end">
+                                                <p class="fs-6">01/25</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-1">
+                                                <img class="img-fluid w-100"
+                                                    src="https://imgs.search.brave.com/4dmn_TSyuffYFXvmZw1yiHTNYm5C6GYj7QUzIDEwvw4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vMFNjNlFT/UGkzRWZVWEdrUFNW/Rm5EQktHbEx5Zk5y/ejZkT0pEUWZ2MktM/Yy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlz/YjNOMi9hV0ZxWlhO/a1pXUnZiV2t1L1ky/OXRMM2R3TFdOdmJu/UmwvYm5RdmRYQnNi/MkZrY3k4eS9NREl4/THpBNUwzSnZjbUZw/L2JXRXRNUzB4TG1w/d1p3">
+                                            </div>
+                                            <div class="col-12">
+                                                <p><b>976 likes</b></p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="fs-6">Descripción del post 3</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
